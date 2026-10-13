@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of J&S | Year 4 Computing Assessment</title>
+<style>
+:root{--gold:#c79a2b;--gold2:#f0d98c;--ink:#24221d;--muted:#716b60;--paper:#fffdf8;--line:#e9dfc9;--green:#18794e;--red:#b42318;--navy:#242a36}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f2e9;color:var(--ink);font-family:Arial,"Noto Sans Myanmar",sans-serif;line-height:1.6}
+header{background:linear-gradient(120deg,#fff 0%,#fffaf0 58%,#f4e4b7 100%);border-bottom:1px solid var(--line);padding:22px clamp(16px,4vw,54px);display:flex;align-items:center;gap:18px;position:sticky;top:0;z-index:10;box-shadow:0 5px 24px #3d2d0b0d}
+.logo{width:62px;height:62px;object-fit:contain;border-radius:14px;background:#fff;border:1px solid #ead9a8;padding:5px}.brand{flex:1}.brand h1{margin:0;font-size:clamp(18px,2.5vw,27px);letter-spacing:.3px}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}.brand span{color:#9b7210}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer;transition:.2s;font-size:13px}.btn:hover{transform:translateY(-1px)}.gold{background:linear-gradient(135deg,#b88619,#e3c46e);color:#211a09}.light{background:#fff;border:1px solid var(--line);color:var(--ink)}.dark{background:var(--navy);color:white}
+main{max-width:1180px;margin:28px auto;padding:0 18px 70px;display:grid;grid-template-columns:245px minmax(0,1fr);gap:22px}.sidebar{align-self:start;position:sticky;top:115px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 28px #47371408}.sidebar h3{margin:0 0 12px;font-size:14px;color:#80600d;text-transform:uppercase;letter-spacing:1px}.progressline{height:7px;background:#f0eadb;border-radius:9px;overflow:hidden;margin:10px 0}.progressfill{height:100%;width:0;background:linear-gradient(90deg,#b88619,#efd77c);transition:width .2s}.progress-label{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}.navlist{display:grid;gap:7px;margin-top:16px}.navlist a{text-decoration:none;color:#494438;padding:9px 10px;border-radius:9px;font-size:13px;border:1px solid transparent}.navlist a:hover{background:#fff8e7;border-color:#f0dfad}.side-note{font-size:12px;color:var(--muted);margin-top:18px;border-top:1px solid var(--line);padding-top:13px}
+.content{min-width:0}.hero{background:linear-gradient(130deg,#292a2d,#3b3527);color:#fff;border-radius:20px;padding:26px;margin-bottom:18px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #d9b95c66;border-radius:50%;right:-60px;top:-85px;box-shadow:0 0 0 24px #d9b95c10,0 0 0 50px #d9b95c08}.eyebrow{color:#e8ca70;text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:bold}.hero h2{font-size:clamp(24px,3vw,35px);margin:6px 0}.hero p{color:#e9e3d4;margin:0;max-width:700px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.stat{border:1px solid #ffffff35;border-radius:10px;padding:8px 12px;font-size:12px}.stat b{color:#f2d579}
+.studentbar{display:grid;grid-template-columns:1fr 190px;gap:12px;margin-bottom:18px}.field{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}.field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:bold}.field input{border:0;outline:0;width:100%;font-size:15px;margin-top:5px;background:transparent;color:var(--ink)}
+.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;margin-bottom:17px;box-shadow:0 7px 22px #47371406;scroll-margin-top:115px}.qhead{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}.qnum{flex:0 0 36px;height:36px;border-radius:11px;background:#fbf1d1;color:#87610a;display:grid;place-items:center;font-weight:800}.qhead h3{margin:0;font-size:17px}.qhead p{margin:3px 0 0;font-size:12px;color:var(--muted)}.marks{margin-left:auto;white-space:nowrap;background:#f8f5ed;padding:5px 9px;border-radius:8px;font-size:11px;color:#75684c}
+.options{display:grid;gap:8px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid #eee7d8;border-radius:10px;padding:10px 12px;cursor:pointer;transition:.15s}.option:hover{border-color:#d7b75c;background:#fffdf5}.option input{margin-top:5px;accent-color:#b88619}.option span{flex:1}.text-answer{width:100%;border:1px solid #e5dcc8;border-radius:10px;padding:12px;font:inherit;min-height:46px;outline-color:#c79a2b}.answer-grid{display:grid;gap:12px}.subq{border-top:1px solid #f0eadc;padding-top:13px}.subq:first-child{border-top:0;padding-top:0}.subq label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}.hint{font-size:12px;color:var(--muted);margin-top:5px}.wordbank{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.wordbank span{background:#fbf5e5;border:1px solid #ead9a8;border-radius:20px;padding:5px 10px;font-size:12px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px;border:1px solid #e9e1d1;text-align:left}th{background:#faf4e3}td.center{text-align:center}select{border:1px solid #e5dcc8;border-radius:8px;padding:8px;background:white;font:inherit;width:100%;max-width:260px}
+.article-mock{border:1px solid #ddd2b5;background:#fffdf8;padding:16px;border-radius:10px;max-width:690px;margin:12px auto;font-family:Georgia,serif}.paper-top{display:flex;justify-content:space-between;font-size:10px;border-bottom:2px solid #333;padding-bottom:5px}.paper-logo{text-align:center;font-size:clamp(25px,4vw,39px);font-weight:bold;line-height:1.1;margin:8px 0}.paper-cols{display:grid;grid-template-columns:1fr 1.4fr;gap:13px}.paper-head{font-size:15px;font-weight:bold;line-height:1.1}.paper-copy{font-size:10px;line-height:1.35;color:#333}.fakephoto{min-height:80px;background:linear-gradient(135deg,#b9b9b9,#4b4b4b);display:grid;place-items:center;color:#fff;font:700 12px Arial;margin:6px 0}.paper-caption{font-size:9px;font-style:italic;color:#555}.label-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.result-panel{display:none;background:#fff;border:2px solid #d7bd6c;border-radius:18px;padding:24px;margin:18px 0;scroll-margin-top:115px}.result-panel.show{display:block}.scoreline{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.scorecircle{width:100px;height:100px;border-radius:50%;display:grid;place-items:center;background:#fff6d8;border:5px solid #d9b74d;font-size:24px;font-weight:800}.result-list{display:grid;gap:10px;margin-top:18px}.result-item{border:1px solid #e9e1d1;border-radius:12px;padding:13px}.result-item.correct{border-left:5px solid var(--green)}.result-item.incorrect{border-left:5px solid var(--red)}.result-item h4{margin:0 0 5px;font-size:14px}.result-item p{margin:4px 0;font-size:13px}.tag{display:inline-block;border-radius:20px;padding:3px 8px;font-size:11px;font-weight:bold}.tag.ok{background:#e7f6ed;color:#12643e}.tag.no{background:#fde9e7;color:#9b2118}.muted{color:var(--muted)}.submitbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:17px;background:#fff;border:1px solid var(--line);border-radius:15px}.submitbar p{margin:0;font-size:13px;color:var(--muted)}footer{text-align:center;color:#837b6b;font-size:12px;padding:24px;border-top:1px solid var(--line)}
+@media(max-width:850px){main{grid-template-columns:1fr}.sidebar{position:static;order:0}.navlist{grid-template-columns:repeat(3,1fr)}.content{order:1}.studentbar{grid-template-columns:1fr}.sidebar{padding:13px}.side-note{display:none}}
+@media(max-width:520px){header{align-items:flex-start;flex-wrap:wrap}.logo{width:48px;height:48px}.top-actions{width:100%}.top-actions .btn{flex:1}.card{padding:15px}.label-questions{grid-template-columns:1fr}.navlist{grid-template-columns:repeat(2,1fr)}.paper-cols{grid-template-columns:1fr}}
+@media print{header,.sidebar,.top-actions,.submitbar,.hero{display:none!important}main{display:block;margin:0;padding:0}.card{break-inside:avoid;box-shadow:none}.result-panel{display:block!important}}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="logo1.png" alt="House of J&S logo" onerror="this.style.display='none'">
+  <div class="brand"><h1>House of <span>J&amp;S</span> Computer Training Center</h1><p>Year 4 Computing • News Articles &amp; Desktop Publishing Assessment</p></div>
+  <div class="top-actions"><button class="btn light" onclick="window.print()">Print</button><button class="btn gold" onclick="submitExam()">Submit &amp; Check</button></div>
+</header>
+<main>
+<aside class="sidebar">
+  <h3>Assessment menu</h3>
+  <div class="progress-label"><span>Progress</span><b id="progressText">0% answered</b></div><div class="progressline"><div class="progressfill" id="progressFill"></div></div>
+  <nav class="navlist">
+    <a href="#q1">01 • Features</a><a href="#q2">02 • Newspaper</a><a href="#q3">03 • Software</a><a href="#q4">04 • Images</a><a href="#q5">05 • Typing</a><a href="#q6">06 • Order</a><a href="#q7">07 • Story notes</a><a href="#q8">08 • Text box</a><a href="#q9">09 • Image quality</a><a href="#results">Results</a>
+  </nav>
+  <div class="side-note">Answer every question, then select <b>Submit &amp; Check</b>. Your score, correct answers, and explanations will appear below. Some written answers are checked using key ideas, so read the model answer after submitting.</div>
+</aside>
+<section class="content">
+  <div class="hero">
+    <div class="eyebrow">Interactive practice assessment</div>
+    <h2>Year 4 • News Articles &amp; Publishing</h2>
+    <p>Practise identifying newspaper features, comparing publishing software, and planning a short news story. This page includes all questions visible in the supplied assessment photos.</p>
+    <div class="stats"><div class="stat"><b>9</b> question groups</div><div class="stat"><b>35</b> marks shown on paper</div><div class="stat"><b>Auto-check</b> after submission</div></div>
+  </div>
+  <div class="studentbar">
+    <div class="field"><label for="studentName">Student name</label><input id="studentName" placeholder="Enter your name" autocomplete="name"></div>
+    <div class="field"><label for="examDate">Date</label><input id="examDate" type="date"></div>
+  </div>
+
+  <section class="card" id="q1" data-q="1">
+    <div class="qhead"><div class="qnum">01</div><div><h3>Complete each feature with its description</h3><p>Choose the correct newspaper feature for each definition.</p></div><div class="marks">8 marks</div></div>
+    <div class="wordbank"><span>author or reporter</span><span>caption</span><span>standfirst text</span><span>photograph</span><span>date</span><span>headline</span><span>paragraphs</span><span>labels</span></div>
+    <div class="answer-grid">
+      <div class="subq"><label>a) Explains parts of an image or diagram</label><select name="q1a"><option value="">Choose feature…</option><option>labels</option><option>headline</option><option>caption</option><option>date</option></select></div>
+      <div class="subq"><label>b) The title of the article</label><select name="q1b"><option value="">Choose feature…</option><option>headline</option><option>photograph</option><option>paragraphs</option><option>date</option></select></div>
+      <div class="subq"><label>c) Text used to describe an image, usually underneath it</label><select name="q1c"><option value="">Choose feature…</option><option>caption</option><option>labels</option><option>standfirst text</option><option>author or reporter</option></select></div>
+      <div class="subq"><label>d) The person who wrote the article</label><select name="q1d"><option value="">Choose feature…</option><option>date</option><option>author or reporter</option><option>headline</option><option>photograph</option></select></div>
+      <div class="subq"><label>e) Says when the article was published</label><select name="q1e"><option value="">Choose feature…</option><option>date</option><option>caption</option><option>paragraphs</option><option>labels</option></select></div>
+      <div class="subq"><label>f) The opening paragraph that explains what the article is about</label><select name="q1f"><option value="">Choose feature…</option><option>standfirst text</option><option>photograph</option><option>date</option><option>paragraphs</option></select></div>
+      <div class="subq"><label>g) Helps the reader imagine the story or explains parts of the article</label><select name="q1g"><option value="">Choose feature…</option><option>photograph</option><option>headline</option><option>date</option><option>author or reporter</option></select></div>
+      <div class="subq"><label>h) Structures the text to tell the story in a sensible way</label><select name="q1h"><option value="">Choose feature…</option><option>paragraphs</option><option>labels</option><option>caption</option><option>standfirst text</option></select></div>
+    </div>
+  </section>
+
+  <section class="card" id="q2" data-q="2">
+    <div class="qhead"><div class="qnum">02</div><div><h3>Add the features to the news article</h3><p>Identify the six features shown in the newspaper example.</p></div><div class="marks">6 marks</div></div>
+    <div class="article-mock">
+      <div class="paper-top"><b>THE DAILY</b><span>VOL. 0112</span><span>Sunday, November 12, 2024</span><span>$10.00</span></div>
+      <div class="paper-logo">Capital News</div>
+      <div class="paper-cols">
+        <div><div class="paper-head">Lorem Ipsum Dolor Amet Consectetur</div><div class="paper-copy"><b>By:</b> Lorem Ipsum<br>Maecenas velit diam ornare, rhoncus sem urna. News continues in the article with details and facts.</div></div>
+        <div><div class="fakephoto">NEWSPAPER PHOTO</div><div class="paper-caption">A short sentence underneath the image describes the photograph.</div></div>
+      </div>
+      <hr><div class="paper-head">Morbi Aliquam Neque Ullamcorpi Acumsan Leooreet Seddi Odio Nibh</div><div class="paper-copy">A longer article begins with an introductory paragraph explaining the main story. More paragraphs add supporting information and details. The image and its caption help readers understand the report.</div>
+    </div>
+    <p class="hint">Match each description to the feature. The example above is a practice recreation of the newspaper shown on your paper.</p>
+    <div class="label-questions">
+      <div class="subq"><label>a) Main title across the page</label><select name="q2a"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+      <div class="subq"><label>b) When the newspaper was published</label><select name="q2b"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+      <div class="subq"><label>c) Name of the person who wrote the story</label><select name="q2c"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+      <div class="subq"><label>d) Introductory text below a headline</label><select name="q2d"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+      <div class="subq"><label>e) The image in the article</label><select name="q2e"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+      <div class="subq"><label>f) Text underneath the image</label><select name="q2f"><option value="">Choose…</option><option>Headline</option><option>Date</option><option>Caption</option><option>Photograph</option><option>Author / reporter</option><option>Standfirst text</option></select></div>
+    </div>
+  </section>
+
+  <section class="card" id="q3" data-q="3">
+    <div class="qhead"><div class="qnum">03</div><div><h3>Desktop publishing applications and word processors</h3><p>For each feature, choose which software type can do it.</p></div><div class="marks">7 marks</div></div>
+    <p class="muted">Choose “Both” when both types of software can perform the task.</p>
+    <div class="tablewrap"><table><thead><tr><th>Feature</th><th>Your answer</th></tr></thead><tbody>
+      <tr><td>Check spelling and grammar</td><td><select name="q3a"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Enter and edit text</td><td><select name="q3b"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Save, print, open, insert links, cut, copy and paste</td><td><select name="q3c"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Format text (alignment, bold, italics, underline, bullets, font styles and size)</td><td><select name="q3d"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Insert images, shapes and photos</td><td><select name="q3e"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Type words on a page</td><td><select name="q3f"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+      <tr><td>Easily arrange and change a page layout</td><td><select name="q3g"><option value="">Choose…</option><option>Publishing applications</option><option>Word processors</option><option>Both</option></select></td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="card" id="q4" data-q="4">
+    <div class="qhead"><div class="qnum">04</div><div><h3>Why are images used in news articles?</h3><p>Write two reasons.</p></div><div class="marks">2 marks</div></div>
+    <div class="answer-grid"><div class="subq"><label>1) First reason</label><input class="text-answer" name="q4a" placeholder="Type your answer…"></div><div class="subq"><label>2) Second reason</label><input class="text-answer" name="q4b" placeholder="Type your answer…"></div></div>
+  </section>
+
+  <section class="card" id="q5" data-q="5">
+    <div class="qhead"><div class="qnum">05</div><div><h3>How do you start typing in a publishing application?</h3><p>Select one answer.</p></div><div class="marks">1 mark</div></div>
+    <div class="options">
+      <label class="option"><input type="radio" name="q5" value="A"><span>A. Insert a table, then type.</span></label>
+      <label class="option"><input type="radio" name="q5" value="B"><span>B. Insert a text box, then type.</span></label>
+      <label class="option"><input type="radio" name="q5" value="C"><span>C. Add a picture, then type.</span></label>
+      <label class="option"><input type="radio" name="q5" value="D"><span>D. You cannot type in a publishing application.</span></label>
+    </div>
+  </section>
+
+  <section class="card" id="q6" data-q="6">
+    <div class="qhead"><div class="qnum">06</div><div><h3>News article order</h3><p>A news article is usually written in non-chronological order.</p></div><div class="marks">1 mark</div></div>
+    <div class="options"><label class="option"><input type="radio" name="q6" value="True"><span>True</span></label><label class="option"><input type="radio" name="q6" value="False"><span>False</span></label></div>
+  </section>
+
+  <section class="card" id="q7" data-q="7">
+    <div class="qhead"><div class="qnum">07</div><div><h3>Plan a news story: escaped animals at a shopping arcade</h3><p>Read the story and make brief but detailed notes in each box.</p></div><div class="marks">6 marks</div></div>
+    <blockquote>“Last Sunday, when all the shops were shut at the Plaza shopping arcade, a cleaner accidentally left the pet shop open. Three parrots, ten mice and a cat all escaped and ran around the Plaza. Security guards were running around the arcade trying to catch them! The shopping arcade had to open late on Monday morning because it took so long to catch them all.”</blockquote>
+    <div class="answer-grid">
+      <div class="subq"><label>a) What happened?</label><textarea class="text-answer" name="q7a" rows="2" placeholder="What happened in the story?"></textarea></div>
+      <div class="subq"><label>b) Where did it happen?</label><input class="text-answer" name="q7b" placeholder="Where did it happen?"></div>
+      <div class="subq"><label>c) When did it happen?</label><input class="text-answer" name="q7c" placeholder="When did it happen?"></div>
+      <div class="subq"><label>d) Why did it happen?</label><textarea class="text-answer" name="q7d" rows="2" placeholder="Why did the animals escape?"></textarea></div>
+      <div class="subq"><label>e) Who was there?</label><input class="text-answer" name="q7e" placeholder="Who was involved?"></div>
+      <div class="subq"><label>f) Who was affected?</label><input class="text-answer" name="q7f" placeholder="Who or what was affected?"></div>
+    </div>
+  </section>
+
+  <section class="card" id="q8" data-q="8">
+    <div class="qhead"><div class="qnum">08</div><div><h3>Look at the text box tools</h3><p>Answer the questions about the publishing software toolbar.</p></div><div class="marks">3 marks</div></div>
+    <div class="article-mock" style="font-family:Arial;text-align:center"><div style="background:#176d78;color:#fff;padding:10px;border-radius:5px;font-size:12px;font-weight:bold">PUBLISHER TOOLBAR — SHAPE FORMAT</div><div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;padding:14px;background:#f5f5f5"><span style="border:1px solid #ccc;background:#fff;padding:8px;border-radius:5px">Shape Fill</span><span style="border:1px solid #ccc;background:#fff;padding:8px;border-radius:5px">Shape Outline</span><span style="border:1px solid #ccc;background:#fff;padding:8px;border-radius:5px">Shape Effects</span><span style="border:1px solid #ccc;background:#fff;padding:8px;border-radius:5px">Text Direction</span></div><div style="border:1px solid #ccc;height:70px;margin:12px auto;width:60%;display:grid;place-items:center"><div style="border:2px solid #9e9e9e;padding:8px 25px;position:relative">Text box <span style="position:absolute;right:-9px;top:-27px;font-size:20px">↻</span></div></div></div>
+    <div class="answer-grid">
+      <div class="subq"><label>a) What is the circle on its own at the top of the text box for?</label><input class="text-answer" name="q8a" placeholder="It is used to…"></div>
+      <div class="subq"><label>b) Which button would you click to change the text box fill colour to blue?</label><select name="q8b"><option value="">Choose button…</option><option>Shape Fill</option><option>Shape Outline</option><option>Text Direction</option><option>Shape Effects</option></select></div>
+      <div class="subq"><label>c) Which tool changes the direction/orientation of the text?</label><select name="q8c"><option value="">Choose tool…</option><option>Text Direction</option><option>Shape Fill</option><option>Shape Outline</option><option>Crop</option></select></div>
+    </div>
+  </section>
+
+  <section class="card" id="q9" data-q="9">
+    <div class="qhead"><div class="qnum">09</div><div><h3>Image quality in news articles</h3><p>The images you might use in a news article should be blurry images.</p></div><div class="marks">1 mark</div></div>
+    <div class="options"><label class="option"><input type="radio" name="q9" value="True"><span>True</span></label><label class="option"><input type="radio" name="q9" value="False"><span>False</span></label></div>
+  </section>
+
+  <div class="submitbar"><p>Check that you have answered all sections. You can review every answer after submission.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn light" onclick="resetExam()">Clear answers</button><button class="btn gold" onclick="submitExam()">Submit &amp; Check answers</button></div></div>
+  <section class="result-panel" id="results"><div class="qhead"><div class="qnum">✓</div><div><h3>Assessment results</h3><p id="resultSubtitle">Your answers and corrections are shown below.</p></div></div><div class="scoreline"><div class="scorecircle"><span id="score">0/35</span></div><div><h3 id="scoreTitle" style="margin:0">Results</h3><p id="scoreMessage" class="muted" style="margin:4px 0">Review the explanations below.</p><p id="studentSummary" class="muted" style="margin:4px 0"></p></div></div><div id="resultList" class="result-list"></div></section>
+</section>
+</main>
+<footer>© House of J&amp;S Computer Training Center • Gold &amp; Pearl Learning Experience</footer>
+<script>
+const model = {
+ q1:{max:8,answers:{q1a:'labels',q1b:'headline',q1c:'caption',q1d:'author or reporter',q1e:'date',q1f:'standfirst text',q1g:'photograph',q1h:'paragraphs'},labels:{q1a:'1a • Labels',q1b:'1b • Headline',q1c:'1c • Caption',q1d:'1d • Author or reporter',q1e:'1e • Date',q1f:'1f • Standfirst text',q1g:'1g • Photograph',q1h:'1h • Paragraphs'},why:'Labels identify parts of a diagram; a headline is the article title; a caption describes a picture; the author/reporter wrote the story; the date tells when it was published; standfirst text introduces the story; photographs show what the story is about; paragraphs organise the writing.'},
+ q2:{max:6,answers:{q2a:'Headline',q2b:'Date',q2c:'Author / reporter',q2d:'Standfirst text',q2e:'Photograph',q2f:'Caption'},labels:{q2a:'2a • Main title',q2b:'2b • Publication date',q2c:'2c • Writer credit',q2d:'2d • Introductory text',q2e:'2e • Image',q2f:'2f • Text under image'},why:'A headline is the story title; the date tells when it was published; the author/reporter credit names the writer; standfirst text introduces the story; a photograph is the image; and a caption explains the image.'},
+ q3:{max:7,answers:{q3a:'Both',q3b:'Both',q3c:'Both',q3d:'Both',q3e:'Both',q3f:'Both',q3g:'Publishing applications'},labels:{q3a:'3 • Check spelling and grammar',q3b:'3 • Enter and edit text',q3c:'3 • Common file and editing tools',q3d:'3 • Format text',q3e:'3 • Insert images and shapes',q3f:'3 • Type words on a page',q3g:'3 • Page layout'},why:'Both types can handle most basic text and image tasks. Desktop publishing applications are specially designed for precise placement of text and images and more flexible page layout.'},
+ q4:{max:2,answers:{q4a:['helps the reader imagine','helps readers imagine','illustrates','shows what happened','helps explain','explains parts','makes the story interesting','attracts attention'],q4b:['helps the reader imagine','helps readers imagine','illustrates','shows what happened','helps explain','explains parts','makes the story interesting','attracts attention']},labels:{q4a:'4 • Reason 1',q4b:'4 • Reason 2'},why:'Acceptable reasons include: images help readers imagine or understand the story, show what happened, explain parts of an article, and attract the reader’s attention.'},
+ q5:{max:1,answers:{q5:'B'},labels:{q5:'5 • Starting to type'},why:'In a desktop publishing application, insert a text box and then type inside it.'},
+ q6:{max:1,answers:{q6:'False'},labels:{q6:'6 • Article order'},why:'For this worksheet, the expected answer is False. A news report is often organised by importance (the most important facts first), rather than simply following the order in which events happened.'},
+ q7:{max:6,answers:{q7a:['three parrots','10 mice','ten mice','a cat','escaped','ran around'],q7b:['plaza shopping arcade','the plaza','plaza'],q7c:['last sunday','sunday'],q7d:['cleaner','left the pet shop open','accidentally left','left open'],q7e:['cleaner','security guards','parrots','mice','cat'],q7f:['shopping arcade','shops','shoppers','arcade','staff','customers']},labels:{q7a:'7a • What happened?',q7b:'7b • Where?',q7c:'7c • When?',q7d:'7d • Why?',q7e:'7e • Who was there?',q7f:'7f • Who was affected?'},why:'Model notes: Three parrots, ten mice and a cat escaped and ran around the Plaza. Place: the Plaza shopping arcade. Time: last Sunday, when shops were shut. Cause: a cleaner accidentally left the pet shop open. People/animals there: the cleaner, security guards and escaped animals. Affected: the shopping arcade and its staff/shops; it opened late on Monday while the animals were caught.'},
+ q8:{max:3,answers:{q8a:['rotate','rotation','turn','rotates'],q8b:'Shape Fill',q8c:'Text Direction'},labels:{q8a:'8a • Rotation handle',q8b:'8b • Fill colour',q8c:'8c • Text orientation'},why:'The circular handle rotates the text box. Shape Fill changes the inside/background colour of the shape. Text Direction changes the direction or orientation of text.'},
+ q9:{max:1,answers:{q9:'False'},labels:{q9:'9 • Image quality'},why:'News images should be clear and sharp so readers can see the details and understand the story.'}
+};
+function norm(s){return String(s||'').toLowerCase().trim().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ')}
+function getVal(name){const el=document.querySelector(`[name="${name}"]:checked`)||document.querySelector(`[name="${name}"]`);return el?el.value||'':''}
+function answered(name){const el=document.querySelector(`[name="${name}"]:checked`)||document.querySelector(`[name="${name}"]`);return !!(el&&String(el.value||'').trim())}
+function checkAnswer(value,correct){
+ if(Array.isArray(correct)){const v=norm(value);return correct.some(x=>v.includes(norm(x)))}
+ return norm(value)===norm(correct)
+}
+function answerText(correct){return Array.isArray(correct)?'Model answer: '+({q4a:'Images help readers imagine/understand the story, show what happened, explain details, or attract attention.',q4b:'Give a different valid reason, for example: they explain parts of the article.'}[currentKey]||correct[0]):String(correct)}
+let currentKey='';
+function submitExam(){
+ let score=0,max=0,answeredCount=0,results=[];
+ for(const [group,info] of Object.entries(model)){
+   for(const [key,correct] of Object.entries(info.answers)){
+     max+=1;
+     const val=getVal(key);if(val.trim())answeredCount++;
+     const ok=checkAnswer(val,correct);
+     if(ok)score++;
+     let correctText;
+     if(Array.isArray(correct)){
+       const models={
+         q4a:'Images help readers imagine the story, show what happened, explain details, or attract attention.',
+         q4b:'They can explain parts of the article or attract the reader’s attention.',
+         q7a:'Three parrots, ten mice and a cat escaped and ran around the Plaza.',
+         q7b:'The Plaza shopping arcade.',
+         q7c:'Last Sunday.',
+         q7d:'A cleaner accidentally left the pet shop open.',
+         q7e:'The cleaner, security guards and escaped animals.',
+         q7f:'The shopping arcade and its staff/shops; it had to open late on Monday.'
+       };correctText=models[key]||correct[0];
+     }else correctText=correct;
+     results.push({group,key,label:info.labels[key],value:val,correct:ok,correctText,why:info.why});
+   }
+ }
+ const percentage=Math.round(score/max*100);
+ document.getElementById('score').textContent=`${score}/${max}`;
+ document.getElementById('scoreTitle').textContent=percentage>=80?'Excellent work!':percentage>=50?'Good effort — keep practising':'Keep practising — you can improve';
+ document.getElementById('scoreMessage').textContent=`You scored ${percentage}%. The report below shows each response and the expected answer.`;
+ const student=document.getElementById('studentName').value.trim();
+ document.getElementById('studentSummary').textContent=(student?`Student: ${student} • `:'')+`${answeredCount} answer fields completed.`;
+ document.getElementById('resultSubtitle').textContent=`Submitted on ${new Date().toLocaleString()} • Total available: ${max} marks`;
+ const list=document.getElementById('resultList');list.innerHTML='';
+ results.forEach(r=>{
+   const item=document.createElement('div');item.className='result-item '+(r.correct?'correct':'incorrect');
+   const userAnswer=r.value.trim()?r.value:'No answer';
+   item.innerHTML=`<h4>${r.label} <span class="tag ${r.correct?'ok':'no'}">${r.correct?'Correct':'Review'}</span></h4><p><b>Your answer:</b> ${escapeHtml(userAnswer)}</p><p><b>${r.correct?'Answer accepted':'Expected answer'}:</b> ${escapeHtml(r.correctText)}</p><p class="muted"><b>Explanation:</b> ${escapeHtml(r.why)}</p>`;
+   list.appendChild(item);
+ });
+ const panel=document.getElementById('results');panel.classList.add('show');panel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function resetExam(){if(!confirm('Clear all answers and reset the assessment?'))return;document.querySelectorAll('input:not([type="date"]),textarea,select').forEach(e=>{if(e.type==='radio'||e.type==='checkbox')e.checked=false;else e.value=''});document.getElementById('results').classList.remove('show');updateProgress();window.scrollTo({top:0,behavior:'smooth'})}
+function updateProgress(){const all=[...document.querySelectorAll('.card select,.card textarea,.card input[type="text"],.card input[type="radio"]')];const groups=new Map();all.forEach(el=>{if(el.type==='radio'){if(!groups.has(el.name))groups.set(el.name,false);if(el.checked)groups.set(el.name,true)}else if(el.value.trim())groups.set(el.name,true);else if(!groups.has(el.name))groups.set(el.name,false)});const total=groups.size,done=[...groups.values()].filter(Boolean).length;const p=total?Math.round(done/total*100):0;document.getElementById('progressText').textContent=p+'% answered';document.getElementById('progressFill').style.width=p+'%'}
+document.addEventListener('input',updateProgress);document.addEventListener('change',updateProgress);
+document.getElementById('examDate').value=new Date().toISOString().slice(0,10);
+updateProgress();
+</script>
+</body>
+</html>
